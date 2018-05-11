@@ -68,21 +68,21 @@ task :setup do
   command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config/initializers"]
 
   command %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
+  command  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
   command %[touch "#{fetch(:deploy_to)}/shared/config/uploadcare.yml"]
-  queue  %[echo "-----> Be sure to edit 'shared/config/uploadcare.yml'."]
+  command  %[echo "-----> Be sure to edit 'shared/config/uploadcare.yml'."]
 
   command %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
-  queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
+  command %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
   command %[touch "#{fetch(:deploy_to)}/shared/config/application.yml"]
-  queue %[echo "-----> Be sure to edit for FIGARO 'shared/config/application.yml'."]
+  command %[echo "-----> Be sure to edit for FIGARO 'shared/config/application.yml'."]
 
   command %[touch "#{fetch(:deploy_to)}/shared/config/scout_apm.yml"]
-  queue %[echo "-----> Be sure to edit FOR FIGARO 'shared/config/scout_apm.yml'."]
+  command %[echo "-----> Be sure to edit FOR FIGARO 'shared/config/scout_apm.yml'."]
 
   command %[touch "#{fetch(:deploy_to)}/shared/config/initializers/app_secrets.rb"]
-  queue %[echo "-----> Be sure to edit 'shared/config/initializers/app_secrets.rb'."]
+  command %[echo "-----> Be sure to edit 'shared/config/initializers/app_secrets.rb'."]
 
   # sidekiq needs a place to store its pid file and log file
   command %[mkdir -p "#{fetch(:deploy_to)}/shared/pids/"]

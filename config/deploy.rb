@@ -18,7 +18,7 @@ require 'mina/unicorn'
 set :application_name, 'p2p_app'
 set :domain, '159.65.136.83'
 set :deploy_to, '/var/www/p2p_app'
-set :repository, 'git@github.com/weyewe/p2p_app.git'
+set :repository, 'git@github.com/weyewe/rails-app-deploy.git'
 set :branch, 'staging'
 
 
@@ -40,12 +40,12 @@ set :rvm_path, '/home/corgi_deployer/.rvm/bin/rvm'
 # set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
 
-set :shared_paths, ['config/database.yml',
-  'config/scout_apm.yml',
- 'config/application.yml','log',
-  'config/secrets.yml',
-  'config/initializers/app_secrets.rb',
-  'config/uploadcare.yml']
+# set :shared_paths, ['config/database.yml',
+#   'config/scout_apm.yml',
+# 'config/application.yml','log',
+#   'config/secrets.yml',
+#   'config/initializers/app_secrets.rb',
+#   'config/uploadcare.yml']
   
 set :shared_dirs, fetch(:shared_dirs, []).push('log')
   

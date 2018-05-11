@@ -1,0 +1,9 @@
+{
+  "run_list": [
+
+  ],
+  "environment": "independent_front_office",
+  "automatic": {
+    "ipaddress": "206.189.150.125"
+  }
+}

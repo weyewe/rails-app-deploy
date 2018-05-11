@@ -55,38 +55,38 @@ end
 task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
 
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/sockets"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/sockets"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/sockets"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/sockets"]
 
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/log"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/log"]
 
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/config"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config"]
 
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/config/initializers"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config/initializers"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/config/initializers"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/config/initializers"]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/database.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/database.yml'."]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/uploadcare.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/uploadcare.yml"]
   queue  %[echo "-----> Be sure to edit 'shared/config/uploadcare.yml'."]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/secrets.yml"]
   queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/application.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/application.yml"]
   queue %[echo "-----> Be sure to edit for FIGARO 'shared/config/application.yml'."]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/scout_apm.yml"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/scout_apm.yml"]
   queue %[echo "-----> Be sure to edit FOR FIGARO 'shared/config/scout_apm.yml'."]
 
-  queue! %[touch "#{fetch(:deploy_to)}/shared/config/initializers/app_secrets.rb"]
+  command %[touch "#{fetch(:deploy_to)}/shared/config/initializers/app_secrets.rb"]
   queue %[echo "-----> Be sure to edit 'shared/config/initializers/app_secrets.rb'."]
 
   # sidekiq needs a place to store its pid file and log file
-  queue! %[mkdir -p "#{fetch(:deploy_to)}/shared/pids/"]
-  queue! %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/pids"]
+  command %[mkdir -p "#{fetch(:deploy_to)}/shared/pids/"]
+  command %[chmod g+rx,u+rwx "#{fetch(:deploy_to)}/shared/pids"]
 end
 
 desc "Deploys the current version to the server."

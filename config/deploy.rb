@@ -15,11 +15,13 @@ require 'mina/unicorn'
 # set :branch, 'staging'
     
     
-set :application_name, 'myapp'
+set :application_name, 'p2p_app'
 set :domain, '159.65.136.83'
 set :deploy_to, '/var/www/p2p_app'
-set :repository, 'git://...'
-set :branch, 'master'
+set :repository, 'git@github.com/weyewe/p2p_app.git'
+set :branch, 'staging'
+
+
 
 
 set :user , 'corgi_deployer'

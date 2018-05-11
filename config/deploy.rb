@@ -27,6 +27,7 @@ set :branch, 'staging'
 set :user , 'corgi_deployer'
 set :unicorn_pid, "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
 set :rvm_path, '/usr/local/rvm/bin/rvm'
+set :rvm_use_path, '/usr/local/rvm/bin/rvm'
 
 # /home/corgi_deployer/.rvm
 

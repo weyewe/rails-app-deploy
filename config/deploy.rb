@@ -18,7 +18,7 @@ require 'mina/unicorn'
 set :application_name, 'p2p_app'
 set :domain, '159.65.136.83'
 set :deploy_to, '/var/www/p2p_app'
-set :repository, 'git@github.com/weyewe/rails-app-deploy.git'
+set :repository, 'https://github.com/weyewe/rails-app-deploy.git'
 set :branch, 'staging'
 
 

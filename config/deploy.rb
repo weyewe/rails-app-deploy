@@ -39,6 +39,27 @@ set :rvm_path, '/home/corgi_deployer/.rvm/bin/rvm'
 # set :shared_dirs, fetch(:shared_dirs, []).push('public/assets')
 # set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
 
+
+set :shared_paths, ['config/database.yml',
+  'config/scout_apm.yml',
+ 'config/application.yml','log',
+  'config/secrets.yml',
+  'config/initializers/app_secrets.rb',
+  'config/uploadcare.yml']
+  
+set :shared_dirs, fetch(:shared_dirs, []).push('log')
+  
+set :shared_files, fetch(:shared_files, []).push(
+  'config/database.yml',
+  'config/scout_apm.yml',
+  'config/application.yml', 
+  'config/secrets.yml',
+  'config/initializers/app_secrets.rb',
+  'config/uploadcare.yml' 
+  )
+  
+  
+
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :remote_environment do
@@ -105,8 +126,10 @@ task :deploy do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
+        invoke :'unicorn:restart'
+        # invoke :unicorn:restart 
+        # command %{mkdir -p tmp/}
+        # command %{touch tmp/restart.txt}
       end
     end
   end

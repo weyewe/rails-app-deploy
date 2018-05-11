@@ -26,7 +26,9 @@ set :branch, 'staging'
 
 set :user , 'corgi_deployer'
 set :unicorn_pid, "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
-set :rvm_path, '/home/corgi_deployer/.rvm/bin/rvm'
+set :rvm_path, '/home/corgi_deployer/.rvm'
+
+# /home/corgi_deployer/.rvm
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
@@ -68,14 +70,14 @@ task :remote_environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use', 'ruby-2.3.1p112@default'
+  # invoke :'rvm:use', 'ruby-2.3.1p112@default'
 end
 
 # Put any custom commands you need to run at setup
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
-  command %{rbenv install 2.3.1p112 --skip-existing}
+  # command %{rbenv install 2.3.1p112 --skip-existing}
   # 'rvm install "ruby-2.3.1p112"'
 
   command %[mkdir -p "#{fetch(:deploy_to)}/shared/sockets"]

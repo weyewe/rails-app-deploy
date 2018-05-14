@@ -16,7 +16,7 @@ require 'mina/rvm'    # for rvm support. (https://rvm.io)
     
     
 set :application_name, 'p2p_app'
-set :domain, '206.189.150.125'
+set :domain, '128.199.117.88'
 set :deploy_to, '/var/www/p2p_app'
 set :repository, 'https://github.com/weyewe/rails-app-deploy.git'
 set :branch, 'staging'
